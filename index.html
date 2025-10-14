@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Arsahan Gayrimenkul danışmanlık hizmetleri. Hayalinizdeki evi bulmak için profesyonel ekibimizle yanınızadayız.">
+    <meta name="keywords" content="emlak, gayrimenkul, ev, daire, satılık, kiralık, ofis, arsa">
+    <meta name="author" content="Arsahan Gayrimenkul">
+    <meta property="og:title" content="Arsahan Gayrimenkul - Hayalinizdeki Evi Bulun">
+    <meta property="og:description" content="Türkiye'nin en güvenilir emlak danışmanlık platformu">
+    <meta property="og:type" content="website">
+    <title>Arsahan Gayrimenkul - Hayalinizdeki Evi Bulun</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #c19a6b 0%, #8b6914 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(135deg, #c19a6b 0%, #8b6914 100%);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #c19a6b;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(26, 77, 46, 0.9) 0%, rgba(45, 90, 61, 0.85) 50%, rgba(193, 154, 107, 0.9) 100%),
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%231a4d2e" width="1200" height="800"/><g fill="%23c19a6b" opacity="0.1"><polygon points="0,800 600,400 0,0"/><polygon points="1200,800 600,400 1200,0"/></g><g fill="%232d5a3d" opacity="0.15"><circle cx="200" cy="200" r="150"/><circle cx="1000" cy="600" r="200"/><circle cx="600" cy="100" r="100"/></g><g fill="%23ffffff" opacity="0.03"><rect x="100" y="500" width="200" height="200" transform="rotate(45 200 600)"/><rect x="800" y="200" width="150" height="150" transform="rotate(30 875 275)"/></g></svg>');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(193, 154, 107, 0.2) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(26, 77, 46, 0.3) 0%, transparent 50%);
+            animation: pulse 15s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            z-index: 1;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+            line-height: 1.8;
+        }
+
+        .hero-features {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-feature {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hero-feature-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .hero-feature-text {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            background: white;
+            color: #1a4d2e;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #c19a6b 0%, #8b6914 100%);
+            border-radius: 2px;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(193, 154, 107, 0.3);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #1a4d2e 0%, #c19a6b 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .service-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Properties Section */
+        .properties {
+            background: #f8f9fa;
+            padding: 5rem 2rem;
+        }
+
+        .properties-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .property-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .property-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .property-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .property-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #1a4d2e 0%, #c19a6b 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .property-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255,255,255,0.95);
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: bold;
+            color: #1a4d2e;
+            font-size: 0.9rem;
+        }
+
+        .property-info {
+            padding: 1.5rem;
+        }
+
+        .property-price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #1a4d2e;
+            margin-bottom: 0.5rem;
+        }
+
+        .property-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .property-location {
+            color: #666;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .property-features {
+            display: flex;
+            gap: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .about-text p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #1a4d2e 0%, #c19a6b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            color: #666;
+            margin-top: 0.5rem;
+        }
+
+        .about-image {
+            height: 400px;
+            background: linear-gradient(135deg, #1a4d2e 0%, #c19a6b 100%);
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #1a4d2e 0%, #2d5a3d 50%, #c19a6b 100%);
+            padding: 5rem 2rem;
+            color: white;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .form-group {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        input, textarea {
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        textarea {
+            grid-column: 1 / -1;
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-btn {
+            padding: 1rem 2rem;
+            background: white;
+            color: #1a4d2e;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 3rem 2rem 1rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            margin-bottom: 1rem;
+            color: #c19a6b;
+        }
+
+        .footer-section p, .footer-section a {
+            color: #999;
+            text-decoration: none;
+            line-height: 2;
+            display: block;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            color: #666;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-features {
+                gap: 1.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group {
+                grid-template-columns: 1fr;
+            }
+
+            .property-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">🏠 Arsahan Gayrimenkul</div>
+            <ul class="nav-links">
+                <li><a href="#anasayfa">Ana Sayfa</a></li>
+                <li><a href="#hizmetler">Hizmetler</a></li>
+                <li><a href="#ilanlar">İlanlar</a></li>
+                <li><a href="#hakkimizda">Hakkımızda</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="anasayfa" class="hero">
+        <div class="hero-content">
+            <h1>Hayalinizdeki Evi Bulun</h1>
+            <p>Türkiye'nin en güvenilir emlak platformunda binlerce ilan arasından size en uygun gayrimenkulü keşfedin</p>
+            <a href="#ilanlar" class="cta-button">İlanları İncele</a>
+            <div class="hero-features">
+                <div class="hero-feature">
+                    <div class="hero-feature-icon">🏘️</div>
+                    <div class="hero-feature-text">5000+ İlan</div>
+                </div>
+                <div class="hero-feature">
+                    <div class="hero-feature-icon">✅</div>
+                    <div class="hero-feature-text">Güvenli Alışveriş</div>
+                </div>
+                <div class="hero-feature">
+                    <div class="hero-feature-icon">🤝</div>
+                    <div class="hero-feature-text">Uzman Danışman</div>
+                </div>
+                <div class="hero-feature">
+                    <div class="hero-feature-icon">📊</div>
+                    <div class="hero-feature-text">Ücretsiz Değerleme</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="hizmetler" class="services">
+        <h2 class="section-title">Hizmetlerimiz</h2>
+        <div class="service-grid">
+            <div class="service-card">
+                <div class="service-icon">🏘️</div>
+                <h3>Satılık Emlak</h3>
+                <p>Geniş portföyümüzde yer alan satılık konut, arsa ve ticari gayrimenkul seçenekleriyle hayalinizdeki mülke sahip olun.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔑</div>
+                <h3>Kiralık Emlak</h3>
+                <p>Bütçenize ve ihtiyaçlarınıza uygun kiralık daire, işyeri ve ofis seçeneklerini keşfedin.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">💼</div>
+                <h3>Yatırım Danışmanlığı</h3>
+                <p>Uzman ekibimizle gayrimenkul yatırımlarınızda en karlı fırsatları değerlendirin.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3>Değerleme</h3>
+                <p>Profesyonel değerleme hizmetimizle gayrimenkulünüzün gerçek piyasa değerini öğrenin.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🤝</div>
+                <h3>Hukuki Destek</h3>
+                <p>Alım-satım süreçlerinizde deneyimli hukuk ekibimizle güvenle ilerleyin.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏗️</div>
+                <h3>Proje Pazarlama</h3>
+                <p>Yeni konut projelerinin pazarlama ve satış süreçlerini profesyonelce yönetiyoruz.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="ilanlar" class="properties">
+        <div class="properties-container">
+            <h2 class="section-title">Öne Çıkan İlanlar</h2>
+            <div class="property-grid">
+                <div class="property-card">
+                    <div class="property-image">
+                        <div class="property-badge">Satılık</div>
+                    </div>
+                    <div class="property-info">
+                        <div class="property-price">4.250.000 ₺</div>
+                        <h3 class="property-title">Modern Dubleks Villa</h3>
+                        <p class="property-location">📍 Beykoz, İstanbul</p>
+                        <div class="property-features">
+                            <span class="feature">🛏️ 4+1</span>
+                            <span class="feature">📐 250 m²</span>
+                            <span class="feature">🚗 Otopark</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="property-card">
+                    <div class="property-image">
+                        <div class="property-badge">Kiralık</div>
+                    </div>
+                    <div class="property-info">
+                        <div class="property-price">15.000 ₺/ay</div>
+                        <h3 class="property-title">Deniz Manzaralı Daire</h3>
+                        <p class="property-location">📍 Kadıköy, İstanbul</p>
+                        <div class="property-features">
+                            <span class="feature">🛏️ 3+1</span>
+                            <span class="feature">📐 180 m²</span>
+                            <span class="feature">🏊 Havuz</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="property-card">
+                    <div class="property-image">
+                        <div class="property-badge">Satılık</div>
+                    </div>
+                    <div class="property-info">
+                        <div class="property-price">8.500.000 ₺</div>
+                        <h3 class="property-title">Lüks Ofis Katı</h3>
+                        <p class="property-location">📍 Maslak, İstanbul</p>
+                        <div class="property-features">
+                            <span class="feature">🏢 Ofis</span>
+                            <span class="feature">📐 400 m²</span>
+                            <span class="feature">🅿️ Vale</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="hakkimizda" class="about">
+        <h2 class="section-title">Hakkımızda</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Güvenilir Emlak Ortağınız</h3>
+                <p>15 yılı aşkın tecrübemizle gayrimenkul sektöründe öncü konumdayız. Müşteri memnuniyetini ön planda tutarak, şeffaf ve profesyonel hizmet anlayışımızla binlerce ailenin ev sahibi olmasına aracılık ettik.</p>
+                <p>Uzman kadromuz ve geniş portföyümüzle hayalinizdeki evi bulmanız için yanınızdayız. Her bütçeye uygun seçenekler sunarak, alım-satım süreçlerinizi en başından sonuna kadar profesyonelce yönetiyoruz.</p>
+                <div class="stats">
+                    <div class="stat-card">
+                        <div class="stat-number">5000+</div>
+                        <div class="stat-label">Mutlu Müşteri</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">1200+</div>
+                        <div class="stat-label">Satılan İlan</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">15+</div>
+                        <div class="stat-label">Yıllık Tecrübe</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Uzman Ekip</div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image"></div>
+        </div>
+    </section>
+
+    <section id="iletisim" class="contact">
+        <div class="contact-container">
+            <h2 class="section-title" style="color: white;">Bizimle İletişime Geçin</h2>
+            <p>Sorularınız için bize ulaşın, size en kısa sürede dönüş yapalım</p>
+            <form class="contact-form">
+                <div class="form-group">
+                    <input type="text" placeholder="Adınız Soyadınız" required>
+                    <input type="email" placeholder="E-posta Adresiniz" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" placeholder="Telefon Numaranız" required>
+                    <input type="text" placeholder="Konu" required>
+                </div>
+                <textarea placeholder="Mesajınız" required></textarea>
+                <button type="submit" class="submit-btn">Gönder</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Arsahan Gayrimenkul</h4>
+                <p>Türkiye'nin güvenilir emlak platformu. Hayalinizdeki evi bulmak için yanınızdayız.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Hızlı Linkler</h4>
+                <a href="#anasayfa">Ana Sayfa</a>
+                <a href="#hizmetler">Hizmetler</a>
+                <a href="#ilanlar">İlanlar</a>
+                <a href="#hakkimizda">Hakkımızda</a>
+            </div>
+            <div class="footer-section">
+                <h4>İletişim</h4>
+                <p>📞 +90 531 455 90 06</p>
+                <p>📧 arsahangayrimenkul@gmail.com</p>
+                <p>📍 İstanbul, Türkiye</p>
+            </div>
+            <div class="footer-section">
+                <h4>Sosyal Medya</h4>
+                <a href="#">Facebook</a>
+                <a href="#">Instagram</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">Twitter</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Arsahan Gayrimenkul. Tüm hakları saklıdır.</p>
+        </div>
+    </footer>
+</body>
+</html>
