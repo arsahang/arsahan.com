@@ -1,774 +1,669 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="tr" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Arsahan Gayrimenkul danışmanlık hizmetleri. Hayalinizdeki evi bulmak için profesyonel ekibimizle yanınızadayız.">
-    <meta name="keywords" content="emlak, gayrimenkul, ev, daire, satılık, kiralık, ofis, arsa">
-    <meta name="author" content="Arsahan Gayrimenkul">
-    <meta property="og:title" content="Arsahan Gayrimenkul - Hayalinizdeki Evi Bulun">
-    <meta property="og:description" content="Türkiye'nin en güvenilir emlak danışmanlık platformu">
-    <meta property="og:type" content="website">
-    <title>Arsahan Gayrimenkul - Hayalinizdeki Evi Bulun</title>
+    <title>Arsahan Gayrimenkul - Hayalinizdeki Ev Burada</title>
+    <meta name="description" content="Arsahan Gayrimenkul ile hayalinizdeki evi bulun. Satılık ve kiralık konut, işyeri ve arsa seçenekleri. Uzman ekibimizle güvenli emlak yatırımı yapın.">
+    <meta name="keywords" content="emlak, gayrimenkul, satılık ev, kiralık ev, konut, işyeri, arsa, emlak danışmanı">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
+        body {
             box-sizing: border-box;
         }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            overflow-x: hidden;
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #059669 100%);
         }
-
-        /* Header & Navigation */
-        header {
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        
+        .card-hover {
             transition: all 0.3s ease;
         }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 2rem;
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            background: linear-gradient(135deg, #c19a6b 0%, #8b6914 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+        
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-in;
         }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(135deg, #c19a6b 0%, #8b6914 100%);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-links a:hover {
-            color: #c19a6b;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(135deg, rgba(26, 77, 46, 0.9) 0%, rgba(45, 90, 61, 0.85) 50%, rgba(193, 154, 107, 0.9) 100%),
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%231a4d2e" width="1200" height="800"/><g fill="%23c19a6b" opacity="0.1"><polygon points="0,800 600,400 0,0"/><polygon points="1200,800 600,400 1200,0"/></g><g fill="%232d5a3d" opacity="0.15"><circle cx="200" cy="200" r="150"/><circle cx="1000" cy="600" r="200"/><circle cx="600" cy="100" r="100"/></g><g fill="%23ffffff" opacity="0.03"><rect x="100" y="500" width="200" height="200" transform="rotate(45 200 600)"/><rect x="800" y="200" width="150" height="150" transform="rotate(30 875 275)"/></g></svg>');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 20% 50%, rgba(193, 154, 107, 0.2) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 80%, rgba(26, 77, 46, 0.3) 0%, transparent 50%);
-            animation: pulse 15s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
-        }
-
-        .hero-content {
-            max-width: 800px;
-            padding: 2rem;
-            z-index: 1;
-            animation: fadeInUp 1s ease;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
-            font-weight: 700;
-            letter-spacing: -1px;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-            text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
-            line-height: 1.8;
-        }
-
-        .hero-features {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-top: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .hero-feature {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .hero-feature-icon {
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .hero-feature-text {
-            font-size: 0.9rem;
-            font-weight: 600;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: white;
-            color: #1a4d2e;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-        }
-
-        /* Services Section */
-        .services {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #333;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(135deg, #c19a6b 0%, #8b6914 100%);
-            border-radius: 2px;
-        }
-
-        .service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .service-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(193, 154, 107, 0.3);
-        }
-
-        .service-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #1a4d2e 0%, #c19a6b 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1rem;
-            font-size: 1.8rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-
-        .service-card p {
-            color: #666;
-            line-height: 1.8;
-        }
-
-        /* Properties Section */
-        .properties {
-            background: #f8f9fa;
-            padding: 5rem 2rem;
-        }
-
-        .properties-container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .property-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
+        
         .property-card {
             background: white;
-            border-radius: 15px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
-
-        .property-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
-        }
-
-        .property-image {
-            width: 100%;
-            height: 250px;
-            background: linear-gradient(135deg, #1a4d2e 0%, #c19a6b 100%);
+        
+        .nav-link {
             position: relative;
-            overflow: hidden;
+            transition: color 0.3s ease;
         }
-
-        .property-badge {
+        
+        .nav-link:hover {
+            color: #059669;
+        }
+        
+        .nav-link::after {
+            content: '';
             position: absolute;
-            top: 15px;
-            right: 15px;
-            background: rgba(255,255,255,0.95);
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-weight: bold;
-            color: #1a4d2e;
-            font-size: 0.9rem;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #059669;
+            transition: width 0.3s ease;
         }
-
-        .property-info {
-            padding: 1.5rem;
-        }
-
-        .property-price {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #1a4d2e;
-            margin-bottom: 0.5rem;
-        }
-
-        .property-title {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: #333;
-        }
-
-        .property-location {
-            color: #666;
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-        }
-
-        .property-features {
-            display: flex;
-            gap: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid #eee;
-        }
-
-        .feature {
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-            color: #666;
-            font-size: 0.9rem;
-        }
-
-        /* About Section */
-        .about {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            margin-top: 3rem;
-        }
-
-        .about-text h3 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-
-        .about-text p {
-            color: #666;
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .stat-card {
-            text-align: center;
-            padding: 1.5rem;
-            background: #f8f9fa;
-            border-radius: 10px;
-        }
-
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            background: linear-gradient(135deg, #1a4d2e 0%, #c19a6b 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .stat-label {
-            color: #666;
-            margin-top: 0.5rem;
-        }
-
-        .about-image {
-            height: 400px;
-            background: linear-gradient(135deg, #1a4d2e 0%, #c19a6b 100%);
-            border-radius: 15px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: linear-gradient(135deg, #1a4d2e 0%, #2d5a3d 50%, #c19a6b 100%);
-            padding: 5rem 2rem;
-            color: white;
-        }
-
-        .contact-container {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .contact-form {
-            display: grid;
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-
-        .form-group {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        input, textarea {
-            padding: 1rem;
-            border: none;
-            border-radius: 10px;
-            font-size: 1rem;
-            font-family: inherit;
-        }
-
-        textarea {
-            grid-column: 1 / -1;
-            resize: vertical;
-            min-height: 150px;
-        }
-
-        .submit-btn {
-            padding: 1rem 2rem;
-            background: white;
-            color: #1a4d2e;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .submit-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-        }
-
-        /* Footer */
-        footer {
-            background: #1a1a1a;
-            color: white;
-            padding: 3rem 2rem 1rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h4 {
-            margin-bottom: 1rem;
-            color: #c19a6b;
-        }
-
-        .footer-section p, .footer-section a {
-            color: #999;
-            text-decoration: none;
-            line-height: 2;
-            display: block;
-        }
-
-        .footer-section a:hover {
-            color: white;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid #333;
-            color: #666;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .hero-features {
-                gap: 1.5rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-
-            .form-group {
-                grid-template-columns: 1fr;
-            }
-
-            .property-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
+        
+        .nav-link:hover::after {
+            width: 100%;
         }
     </style>
 </head>
-<body>
-    <header>
-        <nav>
-            <div class="logo">🏠 Arsahan Gayrimenkul</div>
-            <ul class="nav-links">
-                <li><a href="#anasayfa">Ana Sayfa</a></li>
-                <li><a href="#hizmetler">Hizmetler</a></li>
-                <li><a href="#ilanlar">İlanlar</a></li>
-                <li><a href="#hakkimizda">Hakkımızda</a></li>
-                <li><a href="#iletisim">İletişim</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section id="anasayfa" class="hero">
-        <div class="hero-content">
-            <h1>Hayalinizdeki Evi Bulun</h1>
-            <p>Türkiye'nin en güvenilir emlak platformunda binlerce ilan arasından size en uygun gayrimenkulü keşfedin</p>
-            <a href="#ilanlar" class="cta-button">İlanları İncele</a>
-            <div class="hero-features">
-                <div class="hero-feature">
-                    <div class="hero-feature-icon">🏘️</div>
-                    <div class="hero-feature-text">5000+ İlan</div>
-                </div>
-                <div class="hero-feature">
-                    <div class="hero-feature-icon">✅</div>
-                    <div class="hero-feature-text">Güvenli Alışveriş</div>
-                </div>
-                <div class="hero-feature">
-                    <div class="hero-feature-icon">🤝</div>
-                    <div class="hero-feature-text">Uzman Danışman</div>
-                </div>
-                <div class="hero-feature">
-                    <div class="hero-feature-icon">📊</div>
-                    <div class="hero-feature-text">Ücretsiz Değerleme</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="hizmetler" class="services">
-        <h2 class="section-title">Hizmetlerimiz</h2>
-        <div class="service-grid">
-            <div class="service-card">
-                <div class="service-icon">🏘️</div>
-                <h3>Satılık Emlak</h3>
-                <p>Geniş portföyümüzde yer alan satılık konut, arsa ve ticari gayrimenkul seçenekleriyle hayalinizdeki mülke sahip olun.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🔑</div>
-                <h3>Kiralık Emlak</h3>
-                <p>Bütçenize ve ihtiyaçlarınıza uygun kiralık daire, işyeri ve ofis seçeneklerini keşfedin.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">💼</div>
-                <h3>Yatırım Danışmanlığı</h3>
-                <p>Uzman ekibimizle gayrimenkul yatırımlarınızda en karlı fırsatları değerlendirin.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">📊</div>
-                <h3>Değerleme</h3>
-                <p>Profesyonel değerleme hizmetimizle gayrimenkulünüzün gerçek piyasa değerini öğrenin.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🤝</div>
-                <h3>Hukuki Destek</h3>
-                <p>Alım-satım süreçlerinizde deneyimli hukuk ekibimizle güvenle ilerleyin.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">🏗️</div>
-                <h3>Proje Pazarlama</h3>
-                <p>Yeni konut projelerinin pazarlama ve satış süreçlerini profesyonelce yönetiyoruz.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="ilanlar" class="properties">
-        <div class="properties-container">
-            <h2 class="section-title">Öne Çıkan İlanlar</h2>
-            <div class="property-grid">
-                <div class="property-card">
-                    <div class="property-image">
-                        <div class="property-badge">Satılık</div>
+<body class="font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0">
+                        <h1 class="text-2xl font-bold text-gray-800">
+                            <i class="fas fa-home text-amber-600 mr-2"></i>Arsahan Gayrimenkul
+                        </h1>
                     </div>
-                    <div class="property-info">
-                        <div class="property-price">4.250.000 ₺</div>
-                        <h3 class="property-title">Modern Dubleks Villa</h3>
-                        <p class="property-location">📍 Beykoz, İstanbul</p>
-                        <div class="property-features">
-                            <span class="feature">🛏️ 4+1</span>
-                            <span class="feature">📐 250 m²</span>
-                            <span class="feature">🚗 Otopark</span>
+                </div>
+                
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="#anasayfa" class="nav-link text-gray-700 hover:text-emerald-600 px-3 py-2 text-sm font-medium">Ana Sayfa</a>
+                        <a href="#hakkimizda" class="nav-link text-gray-700 hover:text-emerald-600 px-3 py-2 text-sm font-medium">Hakkımızda</a>
+                        <a href="#ilanlar" class="nav-link text-gray-700 hover:text-emerald-600 px-3 py-2 text-sm font-medium">İlanlar</a>
+                        <a href="#hizmetler" class="nav-link text-gray-700 hover:text-emerald-600 px-3 py-2 text-sm font-medium">Hizmetler</a>
+                        <a href="#iletisim" class="nav-link text-gray-700 hover:text-emerald-600 px-3 py-2 text-sm font-medium">İletişim</a>
+                    </div>
+                </div>
+                
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700 hover:text-emerald-600">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white border-t">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+                <a href="#anasayfa" class="block px-3 py-2 text-gray-700 hover:text-emerald-600">Ana Sayfa</a>
+                <a href="#hakkimizda" class="block px-3 py-2 text-gray-700 hover:text-emerald-600">Hakkımızda</a>
+                <a href="#ilanlar" class="block px-3 py-2 text-gray-700 hover:text-emerald-600">İlanlar</a>
+                <a href="#hizmetler" class="block px-3 py-2 text-gray-700 hover:text-emerald-600">Hizmetler</a>
+                <a href="#iletisim" class="block px-3 py-2 text-gray-700 hover:text-emerald-600">İletişim</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="anasayfa" class="hero-gradient text-white pt-16 relative overflow-hidden">
+        <!-- Istanbul Skyline SVG -->
+        <div class="absolute inset-0 opacity-15">
+            <svg viewBox="0 0 1200 600" class="w-full h-full">
+                <!-- Bosphorus Bridge -->
+                <g fill="currentColor">
+                    <!-- Bridge towers -->
+                    <rect x="300" y="200" width="8" height="200" />
+                    <rect x="700" y="200" width="8" height="200" />
+                    <!-- Bridge cables -->
+                    <path d="M304 220 L500 240 L696 220" stroke="currentColor" stroke-width="2" fill="none" />
+                    <path d="M304 230 L500 250 L696 230" stroke="currentColor" stroke-width="2" fill="none" />
+                    <!-- Bridge deck -->
+                    <rect x="300" y="240" width="408" height="4" />
+                </g>
+                
+                <!-- Galata Tower -->
+                <g fill="currentColor">
+                    <rect x="180" y="180" width="20" height="120" />
+                    <polygon points="180,180 190,160 200,180" />
+                    <circle cx="190" cy="170" r="3" fill="rgba(255,255,255,0.3)" />
+                </g>
+                
+                <!-- Hagia Sophia -->
+                <g fill="currentColor">
+                    <rect x="450" y="250" width="60" height="40" />
+                    <circle cx="480" cy="250" r="25" />
+                    <rect x="475" y="200" width="10" height="50" />
+                    <circle cx="480" cy="200" r="5" />
+                </g>
+                
+                <!-- Blue Mosque -->
+                <g fill="currentColor">
+                    <rect x="550" y="260" width="50" height="35" />
+                    <circle cx="575" cy="260" r="20" />
+                    <!-- Minarets -->
+                    <rect x="545" y="210" width="6" height="50" />
+                    <rect x="565" y="200" width="6" height="60" />
+                    <rect x="585" y="200" width="6" height="60" />
+                    <rect x="605" y="210" width="6" height="50" />
+                    <!-- Minaret tops -->
+                    <circle cx="548" cy="210" r="3" />
+                    <circle cx="568" cy="200" r="3" />
+                    <circle cx="588" cy="200" r="3" />
+                    <circle cx="608" cy="210" r="3" />
+                </g>
+                
+                <!-- Modern Istanbul Buildings -->
+                <g fill="currentColor">
+                    <!-- Skyscrapers -->
+                    <rect x="800" y="150" width="25" height="150" />
+                    <rect x="830" y="120" width="30" height="180" />
+                    <rect x="870" y="140" width="28" height="160" />
+                    <rect x="910" y="160" width="22" height="140" />
+                    <rect x="940" y="130" width="35" height="170" />
+                    
+                    <!-- Traditional buildings -->
+                    <rect x="100" y="280" width="40" height="60" />
+                    <rect x="150" y="270" width="35" height="70" />
+                    <rect x="220" y="275" width="30" height="65" />
+                    
+                    <!-- Windows on modern buildings -->
+                    <g fill="rgba(255,255,255,0.2)">
+                        <rect x="810" y="170" width="5" height="8" />
+                        <rect x="810" y="190" width="5" height="8" />
+                        <rect x="810" y="210" width="5" height="8" />
+                        
+                        <rect x="845" y="140" width="6" height="10" />
+                        <rect x="845" y="160" width="6" height="10" />
+                        <rect x="845" y="180" width="6" height="10" />
+                        
+                        <rect x="885" y="160" width="5" height="8" />
+                        <rect x="885" y="180" width="5" height="8" />
+                        <rect x="885" y="200" width="5" height="8" />
+                    </g>
+                </g>
+                
+                <!-- Bosphorus Water -->
+                <g fill="rgba(255,255,255,0.1)">
+                    <ellipse cx="500" cy="350" rx="200" ry="30" />
+                    <ellipse cx="600" cy="380" rx="150" ry="20" />
+                </g>
+                
+                <!-- Seagulls -->
+                <g fill="currentColor" opacity="0.3">
+                    <path d="M150 100 Q155 95 160 100 Q155 105 150 100" />
+                    <path d="M250 120 Q255 115 260 120 Q255 125 250 120" />
+                    <path d="M850 80 Q855 75 860 80 Q855 85 850 80" />
+                </g>
+            </svg>
+        </div>
+        
+        <!-- Floating Elements -->
+        <div class="absolute top-20 left-10 opacity-20 animate-pulse">
+            <i class="fas fa-home text-6xl text-amber-300"></i>
+        </div>
+        <div class="absolute top-40 right-20 opacity-20 animate-pulse" style="animation-delay: 1s;">
+            <i class="fas fa-building text-5xl text-white"></i>
+        </div>
+        <div class="absolute bottom-40 left-20 opacity-20 animate-pulse" style="animation-delay: 2s;">
+            <i class="fas fa-key text-4xl text-amber-300"></i>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
+            <div class="text-center animate-fade-in">
+                <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                    Hayalinizdeki Ev<br>
+    <span class="text-amber-300">Burada Sizi Bekliyor</span>
+                </h1>
+                <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+                    15 yıllık deneyimimizle, güvenilir emlak hizmetleri sunuyoruz. 
+                    Satılık ve kiralık en kaliteli gayrimenkul seçenekleri için doğru adrestesiniz.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button onclick="scrollToSection('ilanlar')" class="bg-amber-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-amber-600 transition duration-300 shadow-lg">
+                        <i class="fas fa-search mr-2"></i>İlan Ara
+                    </button>
+                    <button onclick="scrollToSection('iletisim')" class="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-gray-800 transition duration-300 shadow-lg">
+                        <i class="fas fa-phone mr-2"></i>Bizi Arayın
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Search Bar -->
+    <section class="bg-white py-8 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gray-50 rounded-lg p-6">
+                <h3 class="text-xl font-semibold mb-4 text-center">Hızlı Emlak Arama</h3>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <select class="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-emerald-500 focus:border-transparent">
+                        <option>İşlem Türü</option>
+                        <option>Satılık</option>
+                        <option>Kiralık</option>
+                    </select>
+                    <select class="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-emerald-500 focus:border-transparent">
+                        <option>Emlak Türü</option>
+                        <option>Daire</option>
+                        <option>Villa</option>
+                        <option>İşyeri</option>
+                        <option>Arsa</option>
+                    </select>
+                    <select class="border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-emerald-500 focus:border-transparent">
+                        <option>Şehir</option>
+                        <option>İstanbul</option>
+                        <option>Ankara</option>
+                        <option>İzmir</option>
+                        <option>Antalya</option>
+                    </select>
+                    <button class="bg-emerald-600 text-white px-6 py-2 rounded-lg hover:bg-emerald-700 transition duration-300">
+                        <i class="fas fa-search mr-2"></i>Ara
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="hakkimizda" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Hakkımızda</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    15 yıldır emlak sektöründe güvenilir hizmet veren Arsahan Gayrimenkul, 
+                    müşteri memnuniyetini her zaman ön planda tutar.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center card-hover bg-white p-8 rounded-lg">
+                    <div class="bg-emerald-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-award text-emerald-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">15 Yıl Deneyim</h3>
+                    <p class="text-gray-600">Sektördeki uzun yılların getirdiği deneyim ve güvenle hizmet veriyoruz.</p>
+                </div>
+                
+                <div class="text-center card-hover bg-white p-8 rounded-lg">
+                    <div class="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-users text-amber-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">5000+ Mutlu Müşteri</h3>
+                    <p class="text-gray-600">Binlerce müşterimizin hayallerindeki evi bulmalarına yardımcı olduk.</p>
+                </div>
+                
+                <div class="text-center card-hover bg-white p-8 rounded-lg">
+                    <div class="bg-emerald-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-handshake text-emerald-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Güvenilir Hizmet</h3>
+                    <p class="text-gray-600">Şeffaf ve dürüst yaklaşımımızla müşterilerimizin güvenini kazandık.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Properties Section -->
+    <section id="ilanlar" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Öne Çıkan İlanlar</h2>
+                <p class="text-xl text-gray-600">En popüler ve kaliteli emlak seçeneklerimizi keşfedin</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Property 1 -->
+                <div class="property-card card-hover">
+                    <div class="h-48 bg-gradient-to-r from-blue-400 to-blue-600 flex items-center justify-center">
+                        <i class="fas fa-home text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="bg-emerald-100 text-emerald-800 px-2 py-1 rounded text-sm font-medium">Satılık</span>
+                            <span class="text-2xl font-bold text-emerald-600">₺2.850.000</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Lüks 3+1 Daire</h3>
+                        <p class="text-gray-600 mb-3">
+                            <i class="fas fa-map-marker-alt mr-1"></i>Beşiktaş, İstanbul
+                        </p>
+                        <div class="flex justify-between text-sm text-gray-500 mb-4">
+                            <span><i class="fas fa-bed mr-1"></i>3 Yatak</span>
+                            <span><i class="fas fa-bath mr-1"></i>2 Banyo</span>
+                            <span><i class="fas fa-ruler-combined mr-1"></i>150 m²</span>
+                        </div>
+                        <button class="w-full bg-emerald-600 text-white py-2 rounded-lg hover:bg-emerald-700 transition duration-300">
+                            Detayları Gör
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Property 2 -->
+                <div class="property-card card-hover">
+                    <div class="h-48 bg-gradient-to-r from-green-400 to-green-600 flex items-center justify-center">
+                        <i class="fas fa-building text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="bg-amber-100 text-amber-800 px-2 py-1 rounded text-sm font-medium">Kiralık</span>
+                            <span class="text-2xl font-bold text-emerald-600">₺15.000/ay</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Modern Ofis</h3>
+                        <p class="text-gray-600 mb-3">
+                            <i class="fas fa-map-marker-alt mr-1"></i>Levent, İstanbul
+                        </p>
+                        <div class="flex justify-between text-sm text-gray-500 mb-4">
+                            <span><i class="fas fa-users mr-1"></i>20 Kişi</span>
+                            <span><i class="fas fa-car mr-1"></i>5 Park</span>
+                            <span><i class="fas fa-ruler-combined mr-1"></i>200 m²</span>
+                        </div>
+                        <button class="w-full bg-emerald-600 text-white py-2 rounded-lg hover:bg-emerald-700 transition duration-300">
+                            Detayları Gör
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Property 3 -->
+                <div class="property-card card-hover">
+                    <div class="h-48 bg-gradient-to-r from-purple-400 to-purple-600 flex items-center justify-center">
+                        <i class="fas fa-tree text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <span class="bg-emerald-100 text-emerald-800 px-2 py-1 rounded text-sm font-medium">Satılık</span>
+                            <span class="text-2xl font-bold text-emerald-600">₺4.200.000</span>
+                        </div>
+                        <h3 class="text-xl font-semibold mb-2">Bahçeli Villa</h3>
+                        <p class="text-gray-600 mb-3">
+                            <i class="fas fa-map-marker-alt mr-1"></i>Zekeriyaköy, İstanbul
+                        </p>
+                        <div class="flex justify-between text-sm text-gray-500 mb-4">
+                            <span><i class="fas fa-bed mr-1"></i>4 Yatak</span>
+                            <span><i class="fas fa-bath mr-1"></i>3 Banyo</span>
+                            <span><i class="fas fa-ruler-combined mr-1"></i>300 m²</span>
+                        </div>
+                        <button class="w-full bg-emerald-600 text-white py-2 rounded-lg hover:bg-emerald-700 transition duration-300">
+                            Detayları Gör
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button class="bg-emerald-600 text-white px-8 py-3 rounded-lg hover:bg-emerald-700 transition duration-300">
+                    Tüm İlanları Gör
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="hizmetler" class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Hizmetlerimiz</h2>
+                <p class="text-xl text-gray-600">Emlak ihtiyaçlarınız için kapsamlı çözümler sunuyoruz</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center card-hover bg-white p-6 rounded-lg">
+                    <div class="bg-emerald-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-home text-emerald-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-3">Satış Danışmanlığı</h3>
+                    <p class="text-gray-600 text-sm">Gayrimenkulünüzü en uygun fiyata satmanız için profesyonel destek</p>
+                </div>
+                
+                <div class="text-center card-hover bg-white p-6 rounded-lg">
+                    <div class="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-key text-amber-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-3">Kiralama Hizmetleri</h3>
+                    <p class="text-gray-600 text-sm">Güvenilir kiracı bulma ve kiralama süreçlerini yönetme</p>
+                </div>
+                
+                <div class="text-center card-hover bg-white p-6 rounded-lg">
+                    <div class="bg-emerald-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-chart-line text-emerald-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-3">Yatırım Danışmanlığı</h3>
+                    <p class="text-gray-600 text-sm">Karlı emlak yatırımları için uzman görüş ve analiz</p>
+                </div>
+                
+                <div class="text-center card-hover bg-white p-6 rounded-lg">
+                    <div class="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-calculator text-amber-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-3">Değerleme</h3>
+                    <p class="text-gray-600 text-sm">Gayrimenkulünüzün güncel piyasa değerini belirleme</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="iletisim" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">İletişim</h2>
+                <p class="text-xl text-gray-600">Sorularınız için bize ulaşın, size yardımcı olmaktan mutluluk duyarız</p>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Bize Ulaşın</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="bg-emerald-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-map-marker-alt text-emerald-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Adres</h4>
+                                <p class="text-gray-600">Nişantaşı Mah. Teşvikiye Cad. No:123 Şişli/İstanbul</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="bg-amber-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-phone text-amber-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Telefon</h4>
+                                <p class="text-gray-600">+90 531 455 90 06</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="bg-emerald-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-envelope text-emerald-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">E-posta</h4>
+                                <p class="text-gray-600">arsahangayrimenkul@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="bg-amber-100 w-12 h-12 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-clock text-amber-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Çalışma Saatleri</h4>
+                                <p class="text-gray-600">Pazartesi - Cumartesi: 09:00 - 18:00</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="property-card">
-                    <div class="property-image">
-                        <div class="property-badge">Kiralık</div>
-                    </div>
-                    <div class="property-info">
-                        <div class="property-price">15.000 ₺/ay</div>
-                        <h3 class="property-title">Deniz Manzaralı Daire</h3>
-                        <p class="property-location">📍 Kadıköy, İstanbul</p>
-                        <div class="property-features">
-                            <span class="feature">🛏️ 3+1</span>
-                            <span class="feature">📐 180 m²</span>
-                            <span class="feature">🏊 Havuz</span>
+                
+                <!-- Contact Form -->
+                <div>
+                    <h3 class="text-2xl font-semibold mb-6">Mesaj Gönderin</h3>
+                    <form id="contact-form" class="space-y-4">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <input type="text" placeholder="Adınız" required 
+                                   class="border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-emerald-500 focus:border-transparent">
+                            <input type="email" placeholder="E-posta" required 
+                                   class="border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-emerald-500 focus:border-transparent">
                         </div>
-                    </div>
-                </div>
-                <div class="property-card">
-                    <div class="property-image">
-                        <div class="property-badge">Satılık</div>
-                    </div>
-                    <div class="property-info">
-                        <div class="property-price">8.500.000 ₺</div>
-                        <h3 class="property-title">Lüks Ofis Katı</h3>
-                        <p class="property-location">📍 Maslak, İstanbul</p>
-                        <div class="property-features">
-                            <span class="feature">🏢 Ofis</span>
-                            <span class="feature">📐 400 m²</span>
-                            <span class="feature">🅿️ Vale</span>
-                        </div>
-                    </div>
+                        <input type="tel" placeholder="Telefon" 
+                               class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-emerald-500 focus:border-transparent">
+                        <select class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-emerald-500 focus:border-transparent">
+                            <option>Konu Seçin</option>
+                            <option>Satılık Emlak</option>
+                            <option>Kiralık Emlak</option>
+                            <option>Değerleme</option>
+                            <option>Yatırım Danışmanlığı</option>
+                            <option>Diğer</option>
+                        </select>
+                        <textarea placeholder="Mesajınız" rows="4" required 
+                                  class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-emerald-500 focus:border-transparent"></textarea>
+                        <button type="submit" 
+                                class="w-full bg-emerald-600 text-white py-3 rounded-lg hover:bg-emerald-700 transition duration-300">
+                            <i class="fas fa-paper-plane mr-2"></i>Mesaj Gönder
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="hakkimizda" class="about">
-        <h2 class="section-title">Hakkımızda</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <h3>Güvenilir Emlak Ortağınız</h3>
-                <p>15 yılı aşkın tecrübemizle gayrimenkul sektöründe öncü konumdayız. Müşteri memnuniyetini ön planda tutarak, şeffaf ve profesyonel hizmet anlayışımızla binlerce ailenin ev sahibi olmasına aracılık ettik.</p>
-                <p>Uzman kadromuz ve geniş portföyümüzle hayalinizdeki evi bulmanız için yanınızdayız. Her bütçeye uygun seçenekler sunarak, alım-satım süreçlerinizi en başından sonuna kadar profesyonelce yönetiyoruz.</p>
-                <div class="stats">
-                    <div class="stat-card">
-                        <div class="stat-number">5000+</div>
-                        <div class="stat-label">Mutlu Müşteri</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">1200+</div>
-                        <div class="stat-label">Satılan İlan</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">15+</div>
-                        <div class="stat-label">Yıllık Tecrübe</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number">50+</div>
-                        <div class="stat-label">Uzman Ekip</div>
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">
+                        <i class="fas fa-home mr-2"></i>Arsahan Gayrimenkul
+                    </h3>
+                    <p class="text-gray-300 mb-4">
+                        15 yıldır güvenilir emlak hizmetleri sunuyoruz. 
+                        Hayalinizdeki evi bulmak için buradayız.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition duration-300">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
                     </div>
                 </div>
-            </div>
-            <div class="about-image"></div>
-        </div>
-    </section>
-
-    <section id="iletisim" class="contact">
-        <div class="contact-container">
-            <h2 class="section-title" style="color: white;">Bizimle İletişime Geçin</h2>
-            <p>Sorularınız için bize ulaşın, size en kısa sürede dönüş yapalım</p>
-            <form class="contact-form">
-                <div class="form-group">
-                    <input type="text" placeholder="Adınız Soyadınız" required>
-                    <input type="email" placeholder="E-posta Adresiniz" required>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Hızlı Linkler</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#anasayfa" class="text-gray-300 hover:text-white transition duration-300">Ana Sayfa</a></li>
+                        <li><a href="#hakkimizda" class="text-gray-300 hover:text-white transition duration-300">Hakkımızda</a></li>
+                        <li><a href="#ilanlar" class="text-gray-300 hover:text-white transition duration-300">İlanlar</a></li>
+                        <li><a href="#hizmetler" class="text-gray-300 hover:text-white transition duration-300">Hizmetler</a></li>
+                    </ul>
                 </div>
-                <div class="form-group">
-                    <input type="tel" placeholder="Telefon Numaranız" required>
-                    <input type="text" placeholder="Konu" required>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Emlak Türleri</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Satılık Daire</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Kiralık Daire</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">Satılık Villa</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-white transition duration-300">İşyeri</a></li>
+                    </ul>
                 </div>
-                <textarea placeholder="Mesajınız" required></textarea>
-                <button type="submit" class="submit-btn">Gönder</button>
-            </form>
-        </div>
-    </section>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Arsahan Gayrimenkul</h4>
-                <p>Türkiye'nin güvenilir emlak platformu. Hayalinizdeki evi bulmak için yanınızdayız.</p>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">İletişim</h4>
+                    <ul class="space-y-2 text-gray-300">
+                        <li><i class="fas fa-map-marker-alt mr-2"></i>Nişantaşı, İstanbul</li>
+                        <li><i class="fas fa-phone mr-2"></i>+90 531 455 90 06</li>
+                        <li><i class="fas fa-envelope mr-2"></i>arsahangayrimenkul@gmail.com</li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-section">
-                <h4>Hızlı Linkler</h4>
-                <a href="#anasayfa">Ana Sayfa</a>
-                <a href="#hizmetler">Hizmetler</a>
-                <a href="#ilanlar">İlanlar</a>
-                <a href="#hakkimizda">Hakkımızda</a>
+            
+            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
+                <p class="text-gray-300">
+                    © 2024 Arsahan Gayrimenkul. Tüm hakları saklıdır. | 
+                    <a href="#" class="hover:text-white transition duration-300">Gizlilik Politikası</a> | 
+                    <a href="#" class="hover:text-white transition duration-300">Kullanım Şartları</a>
+                </p>
             </div>
-            <div class="footer-section">
-                <h4>İletişim</h4>
-                <p>📞 +90 531 455 90 06</p>
-                <p>📧 arsahangayrimenkul@gmail.com</p>
-                <p>📍 İstanbul, Türkiye</p>
-            </div>
-            <div class="footer-section">
-                <h4>Sosyal Medya</h4>
-                <a href="#">Facebook</a>
-                <a href="#">Instagram</a>
-                <a href="#">LinkedIn</a>
-                <a href="#">Twitter</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Arsahan Gayrimenkul. Tüm hakları saklıdır.</p>
         </div>
     </footer>
-</body>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling function
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Contact form submission
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show success message
+            const button = this.querySelector('button[type="submit"]');
+            const originalText = button.innerHTML;
+            button.innerHTML = '<i class="fas fa-check mr-2"></i>Mesaj Gönderildi!';
+            button.classList.remove('bg-emerald-600', 'hover:bg-emerald-700');
+            button.classList.add('bg-green-600');
+            
+            // Reset form
+            this.reset();
+            
+            // Reset button after 3 seconds
+            setTimeout(() => {
+                button.innerHTML = originalText;
+                button.classList.remove('bg-green-600');
+                button.classList.add('bg-emerald-600', 'hover:bg-emerald-700');
+            }, 3000);
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('bg-white/95', 'backdrop-blur-sm');
+            } else {
+                nav.classList.remove('bg-white/95', 'backdrop-blur-sm');
+            }
+        });
+
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.card-hover, .property-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98d88b0990e926ad',t:'MTc2MDI5MjUxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
