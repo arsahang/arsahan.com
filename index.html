@@ -111,96 +111,15 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="anasayfa" class="hero-gradient text-white pt-16 relative overflow-hidden">
-        <!-- Istanbul Skyline SVG -->
-        <div class="absolute inset-0 opacity-15">
-            <svg viewBox="0 0 1200 600" class="w-full h-full">
-                <!-- Bosphorus Bridge -->
-                <g fill="currentColor">
-                    <!-- Bridge towers -->
-                    <rect x="300" y="200" width="8" height="200" />
-                    <rect x="700" y="200" width="8" height="200" />
-                    <!-- Bridge cables -->
-                    <path d="M304 220 L500 240 L696 220" stroke="currentColor" stroke-width="2" fill="none" />
-                    <path d="M304 230 L500 250 L696 230" stroke="currentColor" stroke-width="2" fill="none" />
-                    <!-- Bridge deck -->
-                    <rect x="300" y="240" width="408" height="4" />
-                </g>
-                
-                <!-- Galata Tower -->
-                <g fill="currentColor">
-                    <rect x="180" y="180" width="20" height="120" />
-                    <polygon points="180,180 190,160 200,180" />
-                    <circle cx="190" cy="170" r="3" fill="rgba(255,255,255,0.3)" />
-                </g>
-                
-                <!-- Hagia Sophia -->
-                <g fill="currentColor">
-                    <rect x="450" y="250" width="60" height="40" />
-                    <circle cx="480" cy="250" r="25" />
-                    <rect x="475" y="200" width="10" height="50" />
-                    <circle cx="480" cy="200" r="5" />
-                </g>
-                
-                <!-- Blue Mosque -->
-                <g fill="currentColor">
-                    <rect x="550" y="260" width="50" height="35" />
-                    <circle cx="575" cy="260" r="20" />
-                    <!-- Minarets -->
-                    <rect x="545" y="210" width="6" height="50" />
-                    <rect x="565" y="200" width="6" height="60" />
-                    <rect x="585" y="200" width="6" height="60" />
-                    <rect x="605" y="210" width="6" height="50" />
-                    <!-- Minaret tops -->
-                    <circle cx="548" cy="210" r="3" />
-                    <circle cx="568" cy="200" r="3" />
-                    <circle cx="588" cy="200" r="3" />
-                    <circle cx="608" cy="210" r="3" />
-                </g>
-                
-                <!-- Modern Istanbul Buildings -->
-                <g fill="currentColor">
-                    <!-- Skyscrapers -->
-                    <rect x="800" y="150" width="25" height="150" />
-                    <rect x="830" y="120" width="30" height="180" />
-                    <rect x="870" y="140" width="28" height="160" />
-                    <rect x="910" y="160" width="22" height="140" />
-                    <rect x="940" y="130" width="35" height="170" />
-                    
-                    <!-- Traditional buildings -->
-                    <rect x="100" y="280" width="40" height="60" />
-                    <rect x="150" y="270" width="35" height="70" />
-                    <rect x="220" y="275" width="30" height="65" />
-                    
-                    <!-- Windows on modern buildings -->
-                    <g fill="rgba(255,255,255,0.2)">
-                        <rect x="810" y="170" width="5" height="8" />
-                        <rect x="810" y="190" width="5" height="8" />
-                        <rect x="810" y="210" width="5" height="8" />
-                        
-                        <rect x="845" y="140" width="6" height="10" />
-                        <rect x="845" y="160" width="6" height="10" />
-                        <rect x="845" y="180" width="6" height="10" />
-                        
-                        <rect x="885" y="160" width="5" height="8" />
-                        <rect x="885" y="180" width="5" height="8" />
-                        <rect x="885" y="200" width="5" height="8" />
-                    </g>
-                </g>
-                
-                <!-- Bosphorus Water -->
-                <g fill="rgba(255,255,255,0.1)">
-                    <ellipse cx="500" cy="350" rx="200" ry="30" />
-                    <ellipse cx="600" cy="380" rx="150" ry="20" />
-                </g>
-                
-                <!-- Seagulls -->
-                <g fill="currentColor" opacity="0.3">
-                    <path d="M150 100 Q155 95 160 100 Q155 105 150 100" />
-                    <path d="M250 120 Q255 115 260 120 Q255 125 250 120" />
-                    <path d="M850 80 Q855 75 860 80 Q855 85 850 80" />
-                </g>
-            </svg>
+    <section id="anasayfa" class="text-white pt-16 relative overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" 
+                 alt="İstanbul Boğazı'nın mavi denizi ve kıyı manzarası" 
+                 class="w-full h-full object-cover"
+                 onerror="this.style.display='none'; this.parentElement.classList.add('hero-gradient');">
+            <!-- Gradient Overlay -->
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-blue-800/70 to-emerald-800/80"></div>
         </div>
         
         <!-- Floating Elements -->
@@ -665,5 +584,5 @@
             observer.observe(el);
         });
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98d88b0990e926ad',t:'MTc2MDI5MjUxMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98d8a7f6f6a03a71',t:'MTc2MDI5MzY5Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
